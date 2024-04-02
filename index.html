@@ -1,0 +1,795 @@
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridtasks</title>
+</head>
+<style>
+   
+    .cd{
+        background-color: aqua;
+    }
+    p::after{
+        content:" hello";
+        color: blue;
+        background-color: brown;
+        font-size: 60px;
+    }
+    p::before{
+        content: "Sai Ramya";
+        color: rgb(211, 32, 106);
+        background-color: chartreuse;
+        font-size: 70px;
+
+    }
+    p::selection{
+color: red;
+background-color: crimson;
+height: 10px;
+    }
+    li::marker{
+        color: red;
+        content: Poojitha;
+        font-size: 100px;
+      
+        width: 20px;
+        height: 20px;
+    }
+    p::first-letter{
+        font-size: 50px;
+        color: darkblue;
+        background-color: darkorchid;
+    }
+    p ::first-line{
+color: gold;
+    }
+    .tr:hover{
+        transform: perspective(30px)scale(1.5) rotate(60deg);
+    }
+    .tr{
+        transform: translate(10px,20px);
+        height: 100px;
+        width: 100px;
+        background-color: indigo;
+        transform: scale(1);
+        transform: rotate(120deg);
+        transform: skew(45deg);
+    } -->
+    <!-- /* input:active ~ .tr{
+        transform: perspective(100px) translate(30px) scale(1.5) rotate(2.5);
+    } */
+    .scale{
+        height: 100px;
+        width: 100px;    
+        background-color: crimson;
+    
+        
+    } 
+  
+   input:active ~ .scale{
+        transform:scale(1.5);
+    
+    }
+    input:active ~ .rotate{
+        transform: rotate(180deg);
+    }
+    /* .p1:active ~.rotate{
+        transform: perspective(100px) translate(30px);
+    } */
+    .box{
+        width: 300px;
+        height: 300px;
+        border: 2px solid;
+        background-color: aqua;
+        justify-content: auto;
+    } -->
+<!-- </style> -->
+<!-- <body> 
+    <div class="grid">Header
+        <div class="cd"></div>
+        <div class="cd1"></div>
+        <div class="cd"></div>
+        <div class="cd"></div>
+        <div class="cd"></div>
+    </div>
+    <p>this is ramya from cse department in guntur</p>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+      <h1>Transforms</h1><br>
+      <div class="tr">
+        System
+      </div>
+      <div class="tr1"></div>
+        
+    </ul><br><br>
+
+    <input type="radio" >scale
+    
+    <div class="scale"> </div>
+    
+  <div class="rotate"></div>
+  <input type="radio" >rotate
+    
+
+</body> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transisation</title>
+    <style>
+         &__rain {
+    @for $i from 1 to 30 {
+      span:nth-child(#{$i}) {
+        animation-delay: random(5) - 2 + s;
+      }
+    }
+  }
+       
+body {
+	/*To hide the horizontal scroller appearing during the animation*/
+	overflow: hidden;
+
+  background-image: url('https://media.istockphoto.com/id/531253600/photo/sunrise.webp?b=1&s=612x612&w=0&k=20&c=8whqYfMZ1_oyh4K8nohmD54ui8UdsD4IZRjXYTZ2ufw=');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+
+}
+
+#clouds{
+	padding: 100px 0;
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #1181d6 0%, #fff 100%);
+	background: -linear-gradient(top, #0f6bb2 0%, #fff 100%);
+	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
+
+/*Time to finalise the cloud shape*/
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+	position: relative; 
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 100px;
+	position: absolute; top: -15px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+/*Time to animate*/
+.x1_rain {
+	-webkit-animation: moveclouds 15s linear infinite;
+	-moz-animation: moveclouds 15s linear infinite;
+	-o-animation: moveclouds 15s linear infinite;
+}
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+	left: 200px;
+	
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; 
+    /*opacity proportional to the size*/
+	
+	/*Speed will also be proportional to the size and opacity*/
+	/*More the speed. Less the time in 's' = seconds*/
+	-webkit-animation: moveclouds 25s linear infinite;
+	-moz-animation: moveclouds 25s linear infinite;
+	-o-animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+	left: -250px; top: -200px;
+	
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+	left: 470px; top: -250px;
+	
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 18s linear infinite;
+	-moz-animation: moveclouds 18s linear infinite;
+	-o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+	left: -150px; top: -150px;
+	
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+	0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+}
+*
+*:before
+*:after
+  box-sizing border-box
+
+body
+  background-color #6c78a9
+  display flex
+  align-items center
+  justify-content center
+
+.rain__drop
+  animation-delay calc(var(--d) * 1s)
+  animation-duration calc(var(--a) * 1s)
+  animation-iteration-count infinite
+  animation-name drop
+  animation-timing-function linear
+  height 30px
+  left calc(var(--x) * 1%)
+  position absolute
+  top calc((var(--y) + 50) * -1px)
+
+  path
+    fill #a1c6cc
+    opacity var(--o)
+    transform scaleY(calc(var(--s) * 1.5))
+
+@keyframes drop
+  90%
+    opacity 1
+  100%
+    opacity 0
+    transform translateY(100vh)
+    - const droplets = 250
+.rain
+  - for (let r = 0; r < droplets; r++)
+    svg.rain__drop(preserveAspectRatio="xMinYMin", viewBox='0 0 5 50', style=`--x: ${Math.floor(Math.random() * 100)}; --y: ${Math.floor(Math.random() * 100)}; --o: ${Math.random()}; --a: ${Math.random() + 0.5}; --d: ${(Math.random() * 2) - 1}; --s: ${Math.random()}`)
+     
+    html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	overflow: hidden
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+  min-width: 600px;
+	max-width: 800px;
+	max-height: 500px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.row{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rain{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.rain:nth-of-type(1){
+	--duration: 2.7s;
+	--delay: 1s;
+	transform: translate(10%, 10%) scale(0.9);
+}
+
+.rain:nth-of-type(2){
+	--duration: 2.1s;
+	--delay: 1.2s;
+	transform: translate(-20%, 40%) scale(1.3);
+}
+
+.rain:nth-of-type(3){
+	--duration: 2.3s;
+	--delay: 2s;
+	transform: translate(0%, 50%) scale(1.1);
+}
+
+.rain:nth-of-type(4){
+	--duration: 2s;
+	--delay: 4s;
+	transform: translate(0%, -10%) scale(1.2);
+}
+
+.rain:nth-of-type(5){
+	--duration: 2.5s;
+	--delay: 0s;
+	transform: translate(10%, 0%) scale(0.9);
+}
+
+.rain:nth-of-type(6){
+	--duration: 2s;
+	--delay: 2.7s;
+	transform: translate(-20%, 0%) scale(1);
+}
+
+.rain:nth-of-type(7){
+	--duration: 1.8s;
+	--delay: 1.3s;
+	transform: translate(20%, -40%) scale(1.2);
+}
+
+.rain:nth-of-type(8){
+	--duration: 2.2s;
+	--delay: 0s;
+	transform: translate(20%, 0%) scale(1);
+}
+
+.rain:nth-of-type(9){
+	--duration: 2s;
+	--delay: 0.5s;
+	transform: translate(0%, -10%) scale(1.3);
+}
+
+.drop{
+	background-color: white;
+	width: 3px;
+	height: 100px;
+	position: absolute;
+	top: calc(50% - 100px); 
+	left: calc(50% - 1.5px);
+	animation-name: fall;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	animation-fill-mode: backwards;
+}
+
+@keyframes fall{
+	0%{
+		transform: translateY(-120vh);
+	}
+	45%{
+		transform: translateY(0%);
+		opacity: 1;
+	}
+	46%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+
+.waves > div{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-radius: 50%;
+	border: solid white 3px;
+	animation-name: spread;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-fill-mode: backwards;
+}
+
+.waves > div:nth-child(2){
+	animation-delay: calc(var(--delay) + 0.3s);
+	animation-timing-function: linear;
+}
+
+@keyframes spread{
+	0%{
+		transform: scale(0);
+		opacity: 1;
+	}
+	40%{
+		transform: scale(0);
+		opacity: 1;
+	}
+
+	100%{
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+
+
+.splash{
+	position: absolute;
+	top: 10%;
+	bottom: 50%;
+	left: 35%;
+	right: 35%;
+	border-radius: 8px;
+	clip-path: polygon(7% 100%, 5% 95%, 3% 80%, 11% 50%, 17% 38%, 23% 44%, 30% 53%, 37% 28%, 40% 29%, 45% 43%, 51% 53%, 59% 36%, 64% 22%, 67% 23%, 70% 34%, 72% 46%, 79% 37%, 83% 37%, 93% 61%, 96% 76%, 96% 94%, 94% 100%);
+	transform-origin: bottom;
+	animation-name: splash;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	animation-fill-mode: backwards;
+}
+
+@keyframes splash{
+	0%{
+		transform: scale(0.3, 0);
+	}
+
+	49%{
+		transform: scale(0.3, 0);
+	}
+
+	50%{
+		transform: scale(0.3, 0.3);
+	}
+
+	60%{
+		transform: scale(0.7, 1);
+	}
+
+	90%{
+		transform: scale(1, 0);
+	}
+
+	100%{
+		transform: scale(1, 0);
+	}
+}
+
+.particles > div{
+	position: absolute;	
+	border-radius: 100%;
+	animation-duration: var(--duration);
+	animation-delay: var(--delay);
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+}
+
+.particles > div:nth-child(1){
+	width: 7px;
+	height: 7px;
+	top: 50%;
+	left: 50%;
+	animation-name: jumpLeft;
+}
+
+.particles > div:nth-child(2){
+	width: 5px;
+	height: 5px;
+	top: 30%;
+	left: 50%;
+	animation-name: jumpLeft;
+	animation-delay: calc(var(--delay) + 0.1s);
+}
+
+.particles > div:nth-child(3){
+	width: 3px;
+	height: 3px;
+	top: 20%;
+	left: 70%;
+	animation-name: jumpRight;
+	animation-delay: calc(var(--delay) + 0.15s);
+}
+
+.particles > div:nth-child(4){
+	width: 5px;
+	height: 5px;
+	top: 30%;
+	left: 50%;
+	animation-name: jumpRight;
+	animation-delay: calc(var(--delay) + 0.3s);
+}
+
+@keyframes jumpLeft{
+	0%{
+		transform: translate(0,0) scale(0);
+	}
+
+	45%{
+		transform: translate(0,0) scale(0);
+	}
+
+	60%{
+		transform: translate(-50px, -90px) scale(1);
+	}
+
+	100%{
+		transform: translate(-60px, 0px) scale(0.1);
+	}
+}
+
+@keyframes jumpRight{
+	0%{
+		transform: translate(0,0) scale(0);
+	}
+
+	45%{
+		transform: translate(0,0) scale(0);
+	}
+
+	60%{
+		transform: translate(30px, -80px) scale(1);
+	}
+
+	100%{
+		transform: translate(50px, 0px) scale(0.1);
+	}
+}
+path(stroke='none', d="M 2.5,0 C 2.6949458,3.5392017 3.344765,20.524571 4.4494577,30.9559 5.7551357,42.666753 4.5915685,50 2.5,50 0.40843152,50 -0.75513565,42.666753 0.55054234,30.9559 1.655235,20.524571 2.3050542,3.5392017 2.5,0 Z")
+    
+/* div{
+            transition-duration: 1s;
+            transition-property: transform;
+        }
+        div:active{
+            width: 100px;
+            height: 50px;
+            transform: translate(200px);
+            transition-timing-function: ease;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        input:checked ~.bike2{
+            transform: translate(200px);
+            transition-timing-function: ease;
+        }
+        .demo{
+background-color: rgb(210, 30, 117);
+width: 100px;
+height: 100px;
+animation-duration: 4s;
+animation-delay: 1s;
+animation-name: demo;
+}
+
+@keyframes demo{
+   
+    0%   {background-color: red;left: 0px; top:0px;}
+  25%  {background-color: yellow;left:200px;top: 0px;}
+  50%  {background-color: blue;left:200px; top:200px;}
+  100% {background-color: green;left:0px; top:200px;}
+}
+*{ margin: 0; padding: 0;} */
+
+        
+        /* input:checked ~ .bike1{
+        transition-timing-function: ease;
+        } */
+        
+    </style>
+</head>
+<body background="https://media.istockphoto.com/id/531253600/photo/sunrise.webp?b=1&s=612x612&w=0&k=20&c=8whqYfMZ1_oyh4K8nohmD54ui8UdsD4IZRjXYTZ2ufw=" ><center>
+    <div id="clouds">
+        <div class="cloud x1_rain"></div>
+        <!-- Time for multiple clouds to dance around -->
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+    </div>
+    <div class="container">
+
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+        <div class="rain">
+            <div class="drop"></div>
+            <div class="waves">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="splash"></div>
+            <div class="particles">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    
+    </div>
+      <!-- <h1>Transform</h1>
+    <div>
+    <input type="radio">bike
+    <img src="./bike img.jpg">
+</div>
+<div class ="bike2">
+ 
+    <img src="./bike img.jpg">
+</div>
+</center>
+<h1>Animations</h1>
+<div class="demo"></div><br><br> -->
+
+
+<audio controls loop width="500" hight="700" >
+    <source src="./Rain-Against-The-Window-01-c-FesliyanStudios.com.mp3" click it>
+</audio>
+</body>
+</html>
